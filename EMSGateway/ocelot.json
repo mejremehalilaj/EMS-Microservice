@@ -9,7 +9,7 @@
           "Port": 5011
         }
       ],
-      "UpstreamPathTemplate": "/Test",
+      "UpstreamPathTemplate": "/test",
       "UpstreamHttpMethod": ["GET"]
     }
   ]
