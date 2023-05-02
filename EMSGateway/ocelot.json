@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/GetUsers",
+      "DownstreamPathTemplate": "/Test",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -9,7 +9,7 @@
           "Port": 5011
         }
       ],
-      "UpstreamPathTemplate": "/Users",
+      "UpstreamPathTemplate": "/Test",
       "UpstreamHttpMethod": ["GET"]
     }
   ]
