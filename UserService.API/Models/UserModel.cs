@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace UserService.API.Domain
+﻿namespace UserService.API.Models
 {
-    public partial class User
+    public class UserModel
     {
         public int Id { get; set; }
         public string Firstname { get; set; } = null!;
