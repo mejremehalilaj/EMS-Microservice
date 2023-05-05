@@ -31,10 +31,9 @@ namespace AuthService.API.Services.Meeting
          createdBy:MeetingUser
          invitedUser:MeetingUser
          comment:String*/
-        public IEnumerable<MeetingService> GetAllMeetings()
-        {
-            return _meetings;
-        }
+
+
+  
 
     }
 }
