@@ -361,8 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-# Nest JS
-/*-service/dist
-/*-service/node_modules
-/*-service/.env
