@@ -10,12 +10,12 @@ import { ForumMember } from './entities/forum_member.entity';
 export class ForumMembersController {
   constructor(private readonly forumMemberService: ForumMembersService) {}
 
-  @MessagePattern({ cmd: 'find_all' })
+  @MessagePattern({ cmd: 'find_all_forumMembers' })
   findAll() {
     return this.forumMemberService.findAll();
   }
 
-  @MessagePattern({ cmd: 'find_one_by' })
+  @MessagePattern({ cmd: 'find_one_forumMember_by' })
   findOneBy(
     @Payload()
     where: FindOptionsWhere<ForumMember> | FindOptionsWhere<ForumMember>[],
@@ -23,12 +23,12 @@ export class ForumMembersController {
     return this.forumMemberService.findOneBy(where);
   }
 
-  @MessagePattern({ cmd: 'create' })
+  @MessagePattern({ cmd: 'create_forumMember' })
   create(@Payload() createForumMemberDto: CreateForumMemberDto) {
     return this.forumMemberService.create(createForumMemberDto);
   }
 
-  @MessagePattern({ cmd: 'update' })
+  @MessagePattern({ cmd: 'update_forumMember' })
   update(@Payload() updateForumMemberDto: UpdateForumMemberDto) {
     return this.forumMemberService.update(
       updateForumMemberDto.id,
@@ -36,7 +36,7 @@ export class ForumMembersController {
     );
   }
 
-  @MessagePattern({ cmd: 'remove' })
+  @MessagePattern({ cmd: 'remove_forumMember' })
   remove(@Payload() id: string) {
     return this.forumMemberService.remove(id);
   }

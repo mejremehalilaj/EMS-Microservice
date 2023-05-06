@@ -10,29 +10,29 @@ import { Forum } from './entities/forum.entity';
 export class ForumController {
   constructor(private readonly forumService: ForumService) {}
 
-  @MessagePattern({ cmd: 'find_all' })
+  @MessagePattern({ cmd: 'find_all_forums' })
   findAll() {
     return this.forumService.findAll();
   }
 
-  @MessagePattern({ cmd: 'find_one_by' })
+  @MessagePattern({ cmd: 'find_one_forum_by' })
   findOneBy(
     @Payload() where: FindOptionsWhere<Forum> | FindOptionsWhere<Forum>[],
   ) {
     return this.forumService.findOneBy(where);
   }
 
-  @MessagePattern({ cmd: 'create' })
+  @MessagePattern({ cmd: 'create_forum' })
   create(@Payload() createForumDto: CreateForumDto) {
     return this.forumService.create(createForumDto);
   }
 
-  @MessagePattern({ cmd: 'update' })
+  @MessagePattern({ cmd: 'update_forum' })
   update(@Payload() updateForumDto: UpdateForumDto) {
     return this.forumService.update(updateForumDto.id, updateForumDto);
   }
 
-  @MessagePattern({ cmd: 'remove' })
+  @MessagePattern({ cmd: 'remove_forum' })
   remove(@Payload() id: string) {
     return this.forumService.remove(id);
   }

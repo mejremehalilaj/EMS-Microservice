@@ -9,43 +9,43 @@ import { FindOptionsWhere, Repository } from 'typeorm';
 export class ForumMembersService {
   constructor(
     @InjectRepository(ForumMember)
-    private readonly forumMemberRepository: Repository<ForumMember>,
+    private readonly forumMembersRepository: Repository<ForumMember>,
   ) {}
 
   async create(createForumMembersDto: CreateForumMemberDto) {
-    const forumMembers = this.forumMemberRepository.create(
+    const forumMembers = this.forumMembersRepository.create(
       createForumMembersDto,
     );
-    return await this.forumMemberRepository.save(forumMembers);
+    return await this.forumMembersRepository.save(forumMembers);
   }
 
   async findAll() {
-    return await this.forumMemberRepository.find();
+    return await this.forumMembersRepository.find();
   }
 
   async findOneBy(
     where: FindOptionsWhere<ForumMember> | FindOptionsWhere<ForumMember>[],
   ) {
-    return await this.forumMemberRepository.findOneBy(where);
+    return await this.forumMembersRepository.findOneBy(where);
   }
 
   async update(
     id: string,
     updateForumMembersDto: Omit<UpdateForumMemberDto, 'id'>,
   ) {
-    const forumMembers = await this.findOneBy({ id });
-    if (!forumMembers) return null;
+    const forumMember = await this.findOneBy({ id });
+    if (!forumMember) return null;
 
-    const newForumMembers = this.forumMemberRepository.create(
+    const newForumMember = this.forumMembersRepository.create(
       updateForumMembersDto,
     );
-    return await this.forumMemberRepository.update(id, newForumMembers);
+    return await this.forumMembersRepository.update(id, newForumMember);
   }
 
   async remove(id: string) {
-    const forumMembers = await this.findOneBy({ id });
-    if (!forumMembers) return null;
+    const forumMember = await this.findOneBy({ id });
+    if (!forumMember) return null;
 
-    return await this.forumMemberRepository.softRemove({ id });
+    return await this.forumMembersRepository.softRemove({ id });
   }
 }
