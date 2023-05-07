@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Implementations\" />
     <Folder Include="UserService.Business\" />
     <Folder Include="Services\" />
