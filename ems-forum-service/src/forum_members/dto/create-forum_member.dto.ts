@@ -1,1 +1,4 @@
-export class CreateForumMemberDto {}
+export class CreateForumMemberDto {
+  forumId: string;
+  userId: string;
+}
