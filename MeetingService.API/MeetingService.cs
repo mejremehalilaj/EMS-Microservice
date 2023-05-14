@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace MeetingService.API.Models.Meeting
+namespace MeetingService.API
 {
-    public class Meetings
+    public class MeetingService
     {
         [Key]
         public string Id { get; set; }
@@ -14,7 +12,5 @@ namespace MeetingService.API.Models.Meeting
         public string? Place { get; set; }
         public string? Description { get; set; }
         public bool? Online { get; set; }
-
-        public ICollection<MeetingUser> MeetingUsers { get; set; }
     }
 }
