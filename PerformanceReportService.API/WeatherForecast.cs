@@ -1,4 +1,4 @@
-namespace ReportService.API
+namespace PerformanceReportService.API
 {
     public class WeatherForecast
     {

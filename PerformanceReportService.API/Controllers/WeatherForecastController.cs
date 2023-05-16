@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ReportService.API.Controllers
+namespace PerformanceReportService.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
