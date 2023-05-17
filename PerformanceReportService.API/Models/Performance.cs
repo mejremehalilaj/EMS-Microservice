@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ReportService.API.Models
+namespace PerformanceReportService.API.Models
 {
     public class Performance
     {

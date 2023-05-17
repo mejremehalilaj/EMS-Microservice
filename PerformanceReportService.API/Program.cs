@@ -1,4 +1,5 @@
 global using PerformanceReportService.API.Data;
+global using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PerformanceReportService.API.Models;
 
 namespace PerformanceReportService.API.Controllers
 {
@@ -23,20 +24,20 @@ namespace PerformanceReportService.API.Controllers
         }
 
         //nese dojm me marr p.sh veq nje Student me Id
-        [HttpGet("{StudentId}")]
-        public async Task<ActionResult<Performance>> Get(string StudentId)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Performance>> Get(string Id)
         {
-            var meet = await _context.Performance.FindAsync(StudentId);
-            if (meet == null)
+            var report = await _context.Performance.FindAsync(Id);
+            if (report == null)
                 return BadRequest("Report for performance not found");
-            return Ok(meet);
+            return Ok(report);
         }
 
         //me shtu meetings
         [HttpPost]
-        public async Task<ActionResult<List<Performance>>> AddPerformance(Performance Performance)
+        public async Task<ActionResult<List<Performance>>> AddPerformance(Performance performancereport)
         {
-            _context.Performance.Add(Performance);
+            _context.Performance.Add(performancereport);
             await _context.SaveChangesAsync();
             return Ok(await _context.Performance.ToListAsync());
         }
@@ -63,11 +64,11 @@ namespace PerformanceReportService.API.Controllers
         [HttpDelete("Id")]
         public async Task<ActionResult<List<Performance>>> DeletePerformance(string Id)
         {
-            var dbMeet = await _context.Performance.FindAsync(Id);
-            if (dbMeet == null)
+            var dbReport = await _context.Performance.FindAsync(Id);
+            if (dbReport == null)
                 return BadRequest("Meetings not found");
 
-            _context.Performance.Remove(dbMeet);
+            _context.Performance.Remove(dbReport);
 
             await _context.SaveChangesAsync();
             return Ok(await _context.Performance.ToListAsync());

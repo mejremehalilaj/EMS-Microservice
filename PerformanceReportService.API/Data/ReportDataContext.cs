@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReportService.API.Models;
+using PerformanceReportService.API.Models;
 
-namespace ReportService.API.Data
+namespace PerformanceReportService.API.Data
 {
     public class ReportDataContext : DbContext
     { 
