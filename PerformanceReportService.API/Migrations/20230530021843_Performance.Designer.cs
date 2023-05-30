@@ -12,7 +12,7 @@ using PerformanceReportService.API.Data;
 namespace PerformanceReportService.API.Migrations
 {
     [DbContext(typeof(ReportDataContext))]
-    [Migration("20230517000835_Performance")]
+    [Migration("20230530021843_Performance")]
     partial class Performance
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,29 @@ namespace PerformanceReportService.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ReportService.API.Models.Performance", b =>
+            modelBuilder.Entity("PerformanceReportService.API.Models.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("PerformanceReportService.API.Models.Performance", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PerformanceReportService.API.Models;
+using System.Linq;
 
 namespace PerformanceReportService.API.Data
 {
@@ -11,5 +12,6 @@ namespace PerformanceReportService.API.Data
         }
 
         public DbSet<Performance> Performance { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

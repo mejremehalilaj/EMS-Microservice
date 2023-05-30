@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PerformanceReportService.API.Models;
+using System.Linq;
 
 namespace PerformanceReportService.API.Controllers
 {
@@ -73,5 +74,18 @@ namespace PerformanceReportService.API.Controllers
             await _context.SaveChangesAsync();
             return Ok(await _context.Performance.ToListAsync());
         }
+
+       /* [HttpGet("{studentId}")]
+        public ActionResult<Performance> GetStudentPerformance(string studentId)
+        {
+            var studentPerformance = Performance.AsEnumerable().FirstOrDefault(sp => sp.StudentId == studentId);
+                
+            if (studentPerformance == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(studentPerformance);
+        }*/
     }
 }
